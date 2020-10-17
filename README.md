@@ -21,4 +21,4 @@ To start working/developing:
 % docker-compose up
 ```
 
-or `% docker-compopse up --build -d`
+or `% docker-compose up --build -d`
