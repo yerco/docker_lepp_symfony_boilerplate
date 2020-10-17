@@ -4,7 +4,7 @@ Simple docker-symfony boilerplate to start developing.
 
 ## Symfony
 
-Just run https://symfony.com/doc/current/setup.html#creating-symfony-applications
+Run https://symfony.com/doc/current/setup.html#creating-symfony-applications
 ```bash
 % symfony new symfonyapp --full
 ```
@@ -13,4 +13,12 @@ or
 %  symfony new symfonyapp
 ```
 
+## Docker
 
+To start working/developing:
+```bash
+% docker-compose build
+% docker-compose up
+```
+
+or `% docker-compopse up --build -d`
