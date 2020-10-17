@@ -1,2 +1,4 @@
 .idea
 docker_symfony_boilerplate.iml
+logs
+database/data

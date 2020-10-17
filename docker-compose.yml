@@ -34,7 +34,7 @@ services:
             - ./nginx/nginx.conf:/etc/nginx/nginx.conf
             - ./nginx/sites:/etc/nginx/sites-available
             - ./nginx/conf.d:/etc/nginx/conf.d
-            - ./logs/var/log
+            - ./logs:/var/log
         ports:
             #- 80:80
             # to develop on 9090 in this case
