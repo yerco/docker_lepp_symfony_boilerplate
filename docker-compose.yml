@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+
+    database:
+        build:
+            context: ./database
+        environment:
+            - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+            - POSTGRES_USER=${DATABASE_USER}
+            - POSTGRES_DB=${DATABASE_NAME}
+        volumes:
+            - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+            - ./database/data:/var/lib/postgresql/data
+
+    php-fpm:
+        build:
+            context: ./php-fpm
+            dockerfile: Dockerfile
+        depends_on:
+            -   database
+        environment:
+            - APP_ENV=${APP_ENV}
+            - APP_SECRET=${APP_SECRET}
+            - DATABASE_URL=postgres://${DATABASE_USER}:${DATABASE_PASSWORD}@database:5432/${DATABASE_NAME}
+        volumes:
+            - ./symfonyapp:/var/www
+
+    nginx:
+        build:
+            context: ./nginx
+        volumes:
+            - ./symfonyapp:/var/www
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./nginx/sites:/etc/nginx/sites-available
+            - ./nginx/conf.d:/etc/nginx/conf.d
+            - ./logs/var/log
+        ports:
+            #- 80:80
+            # to develop on 9090 in this case
+            - 9090:80
