@@ -4,14 +4,8 @@ Simple docker-symfony boilerplate to start developing.
 
 ## Symfony
 
-Run https://symfony.com/doc/current/setup.html#creating-symfony-applications
-```bash
-% symfony new symfonyapp --full
-```
-or
-```bash
-%  symfony new symfonyapp
-```
+Symfony 5.1 installed at symfonyapp. If you want a cleaner boilerplate 
+(without a specific version of symfony installed) go to previous commit (`ea5864`)
 
 ## Docker
 
