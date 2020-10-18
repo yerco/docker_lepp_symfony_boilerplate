@@ -35,6 +35,8 @@ services:
             - ./nginx/sites:/etc/nginx/sites-available
             - ./nginx/conf.d:/etc/nginx/conf.d
             - ./logs:/var/log
+        depends_on:
+            - php-fpm
         ports:
             #- 80:80
             # to develop on 9090 in this case
